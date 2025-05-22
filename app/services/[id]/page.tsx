@@ -185,21 +185,21 @@ const services = {
   },
   'software-licensing': {
     title: 'Software Licensing',
-    description: 'Get legitimate software licenses at competitive prices from our authorized resellers.',
-    longDescription: 'As authorized resellers of Microsoft Office 365 and Bitdefender security solutions, we provide legitimate software licenses at competitive prices. We help you select the right software packages for your needs, install and configure the applications, and ensure you\'re getting the most value from your software investment. Our licensing services include volume options for small businesses and ongoing support.',
+    description: 'Get legitimate software licences at competitive prices from our authorised resellers.',
+    longDescription: 'As authorised resellers of Microsoft Office 365 and Bitdefender security solutions, we provide legitimate software licences at competitive prices. We help you select the right software packages for your needs, install and configure the applications, and ensure you\'re getting the most value from your software investment. Our licensing services include volume options for small businesses and ongoing support.',
     features: [
       'Microsoft Office 365 licensing',
       'Bitdefender security solutions',
       'Software installation assistance',
       'Volume licensing for businesses',
-      'License management',
+      'Licence management',
       'Software updates & support'
     ],
     benefits: [
       'Genuine software at competitive prices',
       'Professional installation and setup',
       'Regular updates and new features',
-      'Technical support from authorized partners',
+      'Technical support from authorised partners',
       'Multiple device coverage options'
     ],
     icon: (
