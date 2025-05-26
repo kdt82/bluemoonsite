@@ -87,6 +87,19 @@ export default function RootLayout({
   return (
     <html lang="en-AU">
       <head>
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-3CV3PP002R"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-3CV3PP002R');
+            `,
+          }}
+        />
+        
         {/* Additional meta tags for better SEO */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#1f4e79" />
