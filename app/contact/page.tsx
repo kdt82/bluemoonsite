@@ -199,7 +199,7 @@ const ContactPage = () => {
                       </div>
                       <div className="ml-3">
                         <h3 className="text-lg font-medium text-[var(--primary)]">Phone</h3>
-                        <p className="mt-1 text-gray-600">02 8313 0444</p>
+                        <p className="mt-1 text-gray-600"><a href="tel:0283130444" className="hover:text-[var(--accent)]">02 8313 0444</a></p>
                       </div>
                     </div>
                     
@@ -211,7 +211,7 @@ const ContactPage = () => {
                       </div>
                       <div className="ml-3">
                         <h3 className="text-lg font-medium text-[var(--primary)]">Email</h3>
-                        <p className="mt-1 text-gray-600">support@bluemoonit.com.au</p>
+                        <p className="mt-1 text-gray-600"><a href="mailto:support@bluemoonit.com.au" className="hover:text-[var(--accent)]">support@bluemoonit.com.au</a></p>
                       </div>
                     </div>
                     

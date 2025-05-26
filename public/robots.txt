@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://bluemoonit.com.au/sitemap.xml
+
+# Optional: Block admin or private areas if you have any
+# Disallow: /admin/
+# Disallow: /private/ 

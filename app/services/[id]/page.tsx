@@ -18,7 +18,7 @@ const services = {
       'Virus & malware removal',
       'Data backup & recovery',
       'Hardware upgrades (RAM, SSD, etc.)',
-      'Performance optimization'
+      'Performance optimisation'
     ],
     benefits: [
       'Extend the life of your computer',
@@ -43,7 +43,7 @@ const services = {
       'Smart appliance integration',
       'Security camera installation',
       'Smart thermostat installation',
-      'Voice assistant optimization'
+      'Voice assistant optimisation'
     ],
     benefits: [
       'Enhanced home comfort and convenience',
@@ -61,13 +61,13 @@ const services = {
   'wifi': {
     title: 'Home Wi-Fi Solutions',
     description: 'Eliminate dead zones and enjoy reliable, fast Wi-Fi coverage throughout your entire home.',
-    longDescription: 'Our home Wi-Fi solutions address common problems like slow connections, dead zones, and interference. We analyze your space, recommend the best equipment for your needs, and configure your network for optimal performance. From mesh systems to extenders and enterprise-grade access points, we ensure strong, reliable coverage in every corner of your home.',
+    longDescription: 'Our home Wi-Fi solutions address common problems like slow connections, dead zones, and interference. We analyse your space, recommend the best equipment for your needs, and configure your network for optimal performance. From mesh systems to extenders and enterprise-grade access points, we ensure strong, reliable coverage in every corner of your home.',
     features: [
       'Wi-Fi signal analysis',
       'Mesh network setup',
       'Router installation & configuration',
       'Wi-Fi extender setup',
-      'Network optimization',
+      'Network optimisation',
       'Channel interference resolution'
     ],
     benefits: [
@@ -86,7 +86,7 @@ const services = {
   'cybersecurity': {
     title: 'Home Cybersecurity',
     description: 'Protect your digital life with comprehensive security solutions for your home and devices.',
-    longDescription: 'In today\'s connected world, cybersecurity is essential for protecting your personal information. We provide comprehensive security solutions including antivirus software installation, firewall configuration, secure Wi-Fi setup, password management, and safe browsing practices. As a Bitdefender Authorized Reseller, we offer premium security software with professional installation and configuration.',
+    longDescription: 'In today\'s connected world, cybersecurity is essential for protecting your personal information. We provide comprehensive security solutions including antivirus software installation, firewall configuration, secure Wi-Fi setup, password management, and safe browsing practices. As a Bitdefender Authorised Reseller, we offer premium security software with professional installation and configuration.',
     features: [
       'Antivirus & security software installation',
       'Firewall setup & configuration',
@@ -140,7 +140,7 @@ const services = {
     features: [
       'Remote diagnostics',
       'Software troubleshooting',
-      'System optimization',
+      'System optimisation',
       'Software installation assistance',
       'Quick response times',
       'Secure screen sharing'

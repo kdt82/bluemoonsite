@@ -26,7 +26,8 @@ const Header = () => {
                 width={234}
                 height={78}
                 priority
-                className="h-16 w-auto"
+                className="h-16 w-auto max-h-16"
+                style={{ height: '4rem', width: 'auto' }}
               />
             </Link>
           </div>

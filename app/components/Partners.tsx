@@ -46,13 +46,13 @@ const Partners = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
           {partners.map((partner) => (
             <div 
               key={partner.name} 
-              className="bg-white rounded-lg p-6 flex justify-center items-center shadow-md hover:shadow-lg transition-all duration-300"
+              className="bg-white rounded-lg p-6 flex justify-center items-center shadow-md hover:shadow-lg transition-all duration-300 h-36"
             >
-              <div className="relative w-full h-24">
+              <div className={`relative w-full ${partner.name === 'Bitdefender' ? 'h-28' : 'h-24'}`}>
                 <Image
                   src={partner.image}
                   alt={partner.alt}

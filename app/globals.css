@@ -39,3 +39,22 @@ body {
 .modal-overlay {
   background-color: rgba(3, 19, 53, 0.7);
 }
+
+/* SEO Performance Optimizations */
+
+/* Optimize font loading */
+@font-face {
+  font-family: 'Montserrat';
+  font-display: swap;
+}
+
+/* Optimize images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Reduce layout shift */
+.hero-section {
+  min-height: 60vh;
+}

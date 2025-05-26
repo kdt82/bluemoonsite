@@ -22,7 +22,7 @@ const services = [
       'Virus & malware removal',
       'Data backup & recovery',
       'Hardware upgrades (RAM, SSD, etc.)',
-      'Performance optimization'
+      'Performance optimisation'
     ]
   },
   {
@@ -40,7 +40,7 @@ const services = [
       'Smart appliance integration',
       'Security camera installation',
       'Smart thermostat installation',
-      'Voice assistant optimization'
+      'Voice assistant optimisation'
     ]
   },
   {
@@ -57,7 +57,7 @@ const services = [
       'Mesh network setup',
       'Router installation & configuration',
       'Wi-Fi extender setup',
-      'Network optimization',
+      'Network optimisation',
       'Channel interference resolution'
     ]
   },
@@ -109,7 +109,7 @@ const services = [
     features: [
       'Remote diagnostics',
       'Software troubleshooting',
-      'System optimization',
+      'System optimisation',
       'Software installation assistance',
       'Quick response times',
       'Secure screen sharing'

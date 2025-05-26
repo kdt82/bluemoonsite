@@ -12,7 +12,7 @@ export default function PrivacyPolicy() {
       <div className="mb-6">
         <p>Blue Moon IT</p>
         <p>ABN: 12 159 169 631</p>
-        <p>Phone: 02 8313 0444</p>
+        <p>Phone: <a href="tel:0283130444" className="text-blue-600 hover:text-blue-800">02 8313 0444</a></p>
         <p>Email: privacy@bluemoonit.com.au</p>
         <p>Last Updated: 1st January 2025</p>
       </div>
@@ -174,7 +174,7 @@ export default function PrivacyPolicy() {
         <div className="mb-4">
           <p>Privacy Officer</p>
           <p>Blue Moon IT</p>
-          <p>Phone: 02 8313 0444</p>
+          <p>Phone: <a href="tel:0283130444" className="text-blue-600 hover:text-blue-800">02 8313 0444</a></p>
           <p>Email: privacy@bluemoonit.com.au</p>
         </div>
       </section>
