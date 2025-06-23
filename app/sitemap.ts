@@ -77,6 +77,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Article pages
   const articleIds = [
+    'essential-cryptocurrency-security-practices',
     'worlds-largest-data-breach-16-billion-credentials'
   ]
 

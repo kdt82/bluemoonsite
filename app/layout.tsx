@@ -12,6 +12,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://bluemoonit.com.au'),
   title: "Blue Moon IT | Professional IT Support in Illawarra",
   description: "Professional IT support for home users and small businesses in Illawarra, Shoalhaven, Eurododalla and Southern Highlands. PC repairs, smart home setup, cybersecurity and more.",
   keywords: [
