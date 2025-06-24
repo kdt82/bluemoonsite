@@ -44,6 +44,16 @@ export default function DataBreachArticle() {
                 A record-shattering data breach has rocked the digital world, with researchers revealing that more than 16 billion login credentials have been leaked in what is believed to be the largest collection of exposed passwords and usernames ever discovered. This unprecedented incident, uncovered by cybersecurity researchers at Cybernews, highlights the growing threat posed by infostealer malware and the vast, often invisible, underground economy of stolen data.
               </p>
 
+              {/* Data Breach Image */}
+              <div className="my-12 text-center">
+                <img 
+                  src="/assets/databreach.jpg" 
+                  alt="Massive data breach visualization showing cybersecurity threats and stolen credentials" 
+                  className="mx-auto max-w-full h-auto rounded-lg shadow-lg"
+                  style={{ maxHeight: '400px' }}
+                />
+              </div>
+
               <h2 className="text-3xl font-bold text-[var(--primary)] mt-12 mb-6">What Happened?</h2>
               <p className="text-gray-700 mb-6 leading-relaxed">
                 The breach is not the result of a single hack but rather the aggregation of 30 massive datasets, each containing anywhere from tens of millions to over 3.5 billion records. These databases were briefly accessible online through unsecured storage and Elasticsearch instances, long enough for researchers to find them but not enough to identify those responsible.

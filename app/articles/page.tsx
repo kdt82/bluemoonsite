@@ -7,6 +7,16 @@ import Link from 'next/link';
 
 const articles = [
   {
+    id: 'ultimate-guide-home-wifi-australian-homes',
+    title: "The Ultimate Guide to Home WiFi for Australian Homes",
+    excerpt: "A reliable, high-speed WiFi connection is now as essential as electricity or running water in the modern Australian home. Master your home network with this comprehensive guide covering WiFi standards, frequency bands, interference solutions, and optimization tips.",
+    date: "2025-06-24",
+    category: "Technology Guide",
+    readTime: "15 min read",
+    image: "/assets/wifi.png",
+    featured: true
+  },
+  {
     id: 'essential-cryptocurrency-security-practices',
     title: "Essential Cryptocurrency Security Practices",
     excerpt: "Cryptocurrency offers exciting opportunities, but it also attracts sophisticated cybercriminals. Learn essential security measures and common threats to navigate the crypto world with confidence and protect your digital assets.",
@@ -23,7 +33,7 @@ const articles = [
     date: "2025-06-20",
     category: "Cybersecurity",
     readTime: "8 min read",
-    image: "/assets/data-breach-hero.jpg", // You may want to add this image
+    image: "/assets/databreach.jpg",
     featured: true
   }
 ];
@@ -63,8 +73,15 @@ export default function ArticlesPage() {
                   <div className="aspect-w-16 aspect-h-9 bg-gray-200">
                     {article.image ? (
                       <div 
-                        className="w-full h-48 bg-cover bg-center bg-no-repeat"
-                        style={{ backgroundImage: `url('${article.image}')` }}
+                        className={`w-full h-48 bg-no-repeat ${
+                          article.image.includes('databreach.jpg') 
+                            ? 'bg-contain bg-center' 
+                            : 'bg-cover bg-center'
+                        }`}
+                        style={{ 
+                          backgroundImage: `url('${article.image}')`,
+                          backgroundColor: article.image.includes('databreach.jpg') ? '#010713' : undefined
+                        }}
                       />
                     ) : (
                       <div className="w-full h-48 bg-gradient-to-br from-[var(--primary)] to-[var(--accent)] flex items-center justify-center">
