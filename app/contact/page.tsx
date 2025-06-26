@@ -230,7 +230,7 @@ const ContactPage = () => {
                     
                     <div className="pt-6 border-t border-gray-200">
                       <h3 className="text-lg font-medium text-[var(--primary)] mb-3">Service Areas</h3>
-                      <p className="text-gray-600">Proudly servicing Illawarra, Shoalhaven, Eurododalla and Southern Highlands regions.</p>
+                      <p className="text-gray-600">Proudly servicing Illawarra, Shoalhaven, Eurobodalla and Southern Highlands regions.</p>
                     </div>
                   </div>
                   

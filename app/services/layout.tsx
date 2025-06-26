@@ -33,7 +33,7 @@ export default function ServicesLayout({
             "areaServed": [
               "Illawarra",
               "Shoalhaven", 
-              "Eurododalla",
+              "Eurobodalla",
               "Southern Highlands"
             ],
             "hasOfferCatalog": {

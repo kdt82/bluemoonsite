@@ -58,13 +58,13 @@ const Hero = () => {
               Proudly serving:
             </p>
             <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-[var(--white-text)]">
-              <span>Illawarra</span>
+              <a href="/illawarra-wollongong" className="hover:text-[var(--accent)] transition-colors duration-200">Illawarra</a>
               <span>•</span>
-              <span>Shoalhaven</span>
+              <a href="/shoalhaven" className="hover:text-[var(--accent)] transition-colors duration-200">Shoalhaven</a>
               <span>•</span>
-              <span>Eurododalla</span>
+              <a href="/eurobodalla" className="hover:text-[var(--accent)] transition-colors duration-200">Eurobodalla</a>
               <span>•</span>
-              <span>Southern Highlands</span>
+              <a href="/southern-highlands" className="hover:text-[var(--accent)] transition-colors duration-200">Southern Highlands</a>
             </div>
           </div>
         </div>

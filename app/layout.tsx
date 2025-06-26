@@ -14,7 +14,7 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   metadataBase: new URL('https://bluemoonit.com.au'),
   title: "Blue Moon IT | Professional IT Support in Illawarra",
-  description: "Professional IT support for home users and small businesses in Illawarra, Shoalhaven, Eurododalla and Southern Highlands. PC repairs, smart home setup, cybersecurity and more.",
+  description: "Professional IT support for home users and small businesses in Illawarra, Shoalhaven, Eurobodalla and Southern Highlands. PC repairs, smart home setup, cybersecurity and more.",
   keywords: [
     "IT support Illawarra",
     "computer repair Wollongong",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     url: 'https://bluemoonit.com.au',
     siteName: 'Blue Moon IT',
     title: 'Blue Moon IT | Professional IT Support in Illawarra',
-    description: 'Professional IT support for home users and small businesses in Illawarra, Shoalhaven, Eurododalla and Southern Highlands.',
+    description: 'Professional IT support for home users and small businesses in Illawarra, Shoalhaven, Eurobodalla and Southern Highlands.',
     images: [
       {
         url: '/assets/og-image.png',
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Blue Moon IT | Professional IT Support in Illawarra',
-    description: 'Professional IT support for home users and small businesses in Illawarra, Shoalhaven, Eurododalla and Southern Highlands.',
+    description: 'Professional IT support for home users and small businesses in Illawarra, Shoalhaven, Eurobodalla and Southern Highlands.',
     images: ['/assets/og-image.png'],
   },
   verification: {
@@ -121,7 +121,7 @@ export default function RootLayout({
               "areaServed": [
                 "Illawarra",
                 "Shoalhaven", 
-                "Eurododalla",
+                "Eurobodalla",
                 "Southern Highlands"
               ],
               "serviceType": [

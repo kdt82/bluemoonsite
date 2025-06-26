@@ -85,7 +85,7 @@ const Footer = () => {
             <p className="text-sm">© {new Date().getFullYear()} Blue Moon IT. All rights reserved.</p>
             <div className="mt-4 md:mt-0">
               <p className="text-sm">
-                Servicing Illawarra, Shoalhaven, Eurododalla and Southern Highlands
+                Servicing Illawarra, Shoalhaven, Eurobodalla and Southern Highlands
               </p>
             </div>
           </div>

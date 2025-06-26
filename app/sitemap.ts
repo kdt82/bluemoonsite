@@ -75,11 +75,40 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
+  // Location pages
+  const locationPages = [
+    {
+      url: `${baseUrl}/illawarra-wollongong`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/shoalhaven`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/eurobodalla`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/southern-highlands`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    },
+  ]
+
   // Article pages
   const articleIds = [
     'ultimate-guide-home-wifi-australian-homes',
     'essential-cryptocurrency-security-practices',
-    'worlds-largest-data-breach-16-billion-credentials'
+    'worlds-largest-data-breach-16-billion-credentials',
+    'following-worlds-largest-data-breach-small-business-cybersecurity-ransomware'
   ]
 
   const articlePages = articleIds.map(id => ({
@@ -89,5 +118,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  return [...staticPages, ...servicePages, ...articlePages]
+  return [...staticPages, ...servicePages, ...locationPages, ...articlePages]
 } 

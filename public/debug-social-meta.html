@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Meta Debug Tool - Blue Moon IT</title>
+    
+    <!-- Prevent search engine indexing -->
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="bingbot" content="noindex, nofollow">
+    
+    <!-- This is a debug tool, not content for social sharing -->
+    <meta property="og:title" content="Social Media Debug Tool" />
+    <meta property="og:description" content="Internal debugging tool for social media meta tags" />
+    <meta name="twitter:card" content="summary" />
+    
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 1000px; margin: 0 auto; padding: 20px; }
+        .debug-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; border-radius: 5px; }
+        .debug-section h3 { margin-top: 0; color: #1f4e79; }
+        .meta-tag { font-family: monospace; background: #f5f5f5; padding: 5px; margin: 5px 0; border-radius: 3px; }
+        .test-links { margin: 20px 0; }
+        .test-links a { display: inline-block; margin: 5px 10px 5px 0; padding: 10px 15px; background: #1f4e79; color: white; text-decoration: none; border-radius: 5px; }
+        .test-links a:hover { background: #2563eb; }
+        .url-input { width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px; }
+        .analyze-btn { background: #2563eb; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        .analyze-btn:hover { background: #1f4e79; }
+        .hidden { display: none; }
+        .warning { background: #fff3cd; border: 1px solid #ffeaa7; color: #856404; padding: 10px; border-radius: 5px; margin: 10px 0; }
+        .success { background: #d1edff; border: 1px solid #74b9ff; color: #0984e3; padding: 10px; border-radius: 5px; margin: 10px 0; }
+        .error { background: #ffe6e6; border: 1px solid #ff7675; color: #d63031; padding: 10px; border-radius: 5px; margin: 10px 0; }
+        .form-section { background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
+        .results-section { background: #ffffff; border: 2px solid #e9ecef; border-radius: 8px; padding: 20px; margin-top: 20px; }
+        pre { background: #f8f9fa; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        .copy-btn { background: #28a745; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer; font-size: 12px; margin-left: 10px; }
+        .copy-btn:hover { background: #218838; }
+        .tab-buttons { display: flex; margin-bottom: 20px; }
+        .tab-button { background: #e9ecef; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px 5px 0 0; margin-right: 5px; }
+        .tab-button.active { background: #1f4e79; color: white; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Social Media Meta Debug Tool</h1>
+    <p>Analyze any URL for social media sharing metadata (Open Graph, Twitter Cards, etc.)</p>
+    
+    <div class="form-section">
+        <h3>📝 URL Analysis</h3>
+        <input type="url" id="urlInput" class="url-input" placeholder="Enter URL to analyze (e.g., https://bluemoonit.com.au/articles/...)" />
+        <button onclick="analyzeUrl()" class="analyze-btn">🔍 Analyze URL</button>
+        
+        <div class="warning">
+            <strong>Note:</strong> This tool provides analysis guidance and testing links. Due to CORS restrictions, it cannot directly fetch content from other domains. Use the provided external tools for live analysis.
+        </div>
+    </div>
+
+    <div id="quickLinks" class="debug-section">
+        <h3>🚀 Quick Access - Blue Moon IT Articles</h3>
+        <div class="test-links">
+            <button onclick="setUrl('https://bluemoonit.com.au/articles/following-worlds-largest-data-breach-small-business-cybersecurity-ransomware')" class="analyze-btn" style="margin: 5px;">Data Breach Article</button>
+            <button onclick="setUrl('https://bluemoonit.com.au/articles/worlds-largest-data-breach-16-billion-credentials')" class="analyze-btn" style="margin: 5px;">16 Billion Credentials</button>
+            <button onclick="setUrl('https://bluemoonit.com.au/articles/essential-cryptocurrency-security-practices')" class="analyze-btn" style="margin: 5px;">Crypto Security</button>
+            <button onclick="setUrl('https://bluemoonit.com.au/articles/ultimate-guide-home-wifi-australian-homes')" class="analyze-btn" style="margin: 5px;">WiFi Guide</button>
+        </div>
+    </div>
+    
+    <div id="results" class="results-section hidden">
+        <div class="tab-buttons">
+            <button class="tab-button active" onclick="showTab('testing')">🧪 Testing Tools</button>
+            <button class="tab-button" onclick="showTab('checklist')">✅ Checklist</button>
+            <button class="tab-button" onclick="showTab('meta-guide')">📋 Meta Tags Guide</button>
+            <button class="tab-button" onclick="showTab('troubleshooting')">🔧 Troubleshooting</button>
+        </div>
+
+        <div id="testing" class="tab-content active">
+            <h3>🔍 External Testing Tools</h3>
+            <p><strong>Analyzing URL:</strong> <span id="currentUrl"></span></p>
+            <div class="test-links">
+                <a id="facebookDebugger" href="#" target="_blank">Facebook Debugger</a>
+                <a id="twitterValidator" href="#" target="_blank">Twitter Card Validator</a>
+                <a id="linkedinInspector" href="#" target="_blank">LinkedIn Post Inspector</a>
+                <a id="viewSource" href="#" target="_blank">View Page Source</a>
+            </div>
+            
+            <div class="success">
+                <strong>Instructions:</strong>
+                <ol>
+                    <li>Click the links above to open external debugging tools</li>
+                    <li>The URL will be pre-filled in most tools</li>
+                    <li>Facebook Debugger: Click "Debug" then "Scrape Again" if needed</li>
+                    <li>Twitter Validator: The URL should auto-populate</li>
+                    <li>LinkedIn Inspector: Paste the URL and click "Inspect"</li>
+                </ol>
+            </div>
+        </div>
+
+        <div id="checklist" class="tab-content">
+            <h3>✅ Social Media Meta Tags Checklist</h3>
+            <div class="debug-section">
+                <h4>📱 Essential Open Graph Tags</h4>
+                <div class="meta-tag">og:title - Main title for social sharing</div>
+                <div class="meta-tag">og:description - Description text (155-160 characters ideal)</div>
+                <div class="meta-tag">og:image - Image URL (1200x630px recommended)</div>
+                <div class="meta-tag">og:url - Canonical URL of the page</div>
+                <div class="meta-tag">og:type - Content type (article, website, etc.)</div>
+                <div class="meta-tag">og:site_name - Name of your website</div>
+            </div>
+            
+            <div class="debug-section">
+                <h4>🐦 Essential Twitter Card Tags</h4>
+                <div class="meta-tag">twitter:card - Card type (summary_large_image recommended)</div>
+                <div class="meta-tag">twitter:title - Title for Twitter (70 characters max)</div>
+                <div class="meta-tag">twitter:description - Description for Twitter (200 characters max)</div>
+                <div class="meta-tag">twitter:image - Image URL (same as og:image)</div>
+                <div class="meta-tag">twitter:site - Your Twitter handle (optional)</div>
+            </div>
+
+            <div class="debug-section">
+                <h4>📰 Article-Specific Tags</h4>
+                <div class="meta-tag">article:published_time - Publication date</div>
+                <div class="meta-tag">article:author - Author name</div>
+                <div class="meta-tag">article:section - Content category</div>
+                <div class="meta-tag">article:tag - Keywords/tags</div>
+            </div>
+        </div>
+
+        <div id="meta-guide" class="tab-content">
+            <h3>📋 Meta Tags Implementation Guide</h3>
+            
+            <h4>Next.js Layout.tsx Format:</h4>
+            <pre id="nextjsCode">
+export const metadata: Metadata = {
+  metadataBase: new URL('https://yourdomain.com'),
+  title: 'Your Page Title | Site Name',
+  description: 'Your page description',
+  openGraph: {
+    title: 'Your Page Title',
+    description: 'Your page description',
+    images: ['/assets/your-image.png'],
+    type: 'article',
+    url: '/your-page-url',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Your Page Title',
+    description: 'Your page description',
+    images: ['/assets/your-image.png'],
+  },
+};
+            </pre>
+            <button onclick="copyCode('nextjsCode')" class="copy-btn">📋 Copy</button>
+
+            <h4>HTML Meta Tags Format:</h4>
+            <pre id="htmlCode">
+&lt;meta property="og:title" content="Your Page Title" /&gt;
+&lt;meta property="og:description" content="Your page description" /&gt;
+&lt;meta property="og:image" content="https://yourdomain.com/assets/your-image.png" /&gt;
+&lt;meta property="og:url" content="https://yourdomain.com/your-page" /&gt;
+&lt;meta property="og:type" content="article" /&gt;
+
+&lt;meta name="twitter:card" content="summary_large_image" /&gt;
+&lt;meta name="twitter:title" content="Your Page Title" /&gt;
+&lt;meta name="twitter:description" content="Your page description" /&gt;
+&lt;meta name="twitter:image" content="https://yourdomain.com/assets/your-image.png" /&gt;
+            </pre>
+            <button onclick="copyCode('htmlCode')" class="copy-btn">📋 Copy</button>
+        </div>
+
+        <div id="troubleshooting" class="tab-content">
+            <h3>🔧 Common Issues & Solutions</h3>
+            
+            <div class="debug-section">
+                <h4>🖼️ Image Not Displaying</h4>
+                <ul>
+                    <li><strong>Use absolute URLs:</strong> Always use full https:// URLs for images</li>
+                    <li><strong>Check image size:</strong> 1200x630px is optimal (1.91:1 aspect ratio)</li>
+                    <li><strong>File size limit:</strong> Keep under 5MB for Facebook/Twitter</li>
+                    <li><strong>Format:</strong> Use PNG or JPG formats</li>
+                    <li><strong>Public access:</strong> Ensure image URL is publicly accessible</li>
+                </ul>
+            </div>
+
+            <div class="debug-section">
+                <h4>🔄 Cache Issues</h4>
+                <ul>
+                    <li><strong>Facebook:</strong> Use Facebook Debugger and click "Scrape Again"</li>
+                    <li><strong>Twitter:</strong> Cards are usually updated within a few minutes</li>
+                    <li><strong>LinkedIn:</strong> Use Post Inspector to refresh</li>
+                    <li><strong>WhatsApp:</strong> May take 24-48 hours to update</li>
+                </ul>
+            </div>
+
+            <div class="debug-section">
+                <h4>📝 Content Issues</h4>
+                <ul>
+                    <li><strong>Title too long:</strong> Keep Facebook titles under 100 characters</li>
+                    <li><strong>Description length:</strong> 155-160 characters ideal for most platforms</li>
+                    <li><strong>Missing tags:</strong> Ensure all essential tags are present</li>
+                    <li><strong>Duplicate content:</strong> Each page should have unique meta tags</li>
+                </ul>
+            </div>
+
+            <div class="debug-section">
+                <h4>🔍 Validation Steps</h4>
+                <ol>
+                    <li>Check page source for meta tags</li>
+                    <li>Validate with Facebook Debugger</li>
+                    <li>Test with Twitter Card Validator</li>
+                    <li>Verify image loads independently</li>
+                    <li>Test actual sharing on platforms</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function analyzeUrl() {
+            const url = document.getElementById('urlInput').value;
+            if (!url || !isValidUrl(url)) {
+                alert('Please enter a valid URL');
+                return;
+            }
+            
+            document.getElementById('currentUrl').textContent = url;
+            
+            // Update external tool links
+            document.getElementById('facebookDebugger').href = `https://developers.facebook.com/tools/debug/?q=${encodeURIComponent(url)}`;
+            document.getElementById('twitterValidator').href = `https://cards-dev.twitter.com/validator?url=${encodeURIComponent(url)}`;
+            document.getElementById('linkedinInspector').href = `https://www.linkedin.com/post-inspector/inspect/${encodeURIComponent(url)}`;
+            document.getElementById('viewSource').href = `view-source:${url}`;
+            
+            // Show results
+            document.getElementById('results').classList.remove('hidden');
+            
+            // Scroll to results
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function setUrl(url) {
+            document.getElementById('urlInput').value = url;
+            analyzeUrl();
+        }
+
+        function isValidUrl(string) {
+            try {
+                new URL(string);
+                return true;
+            } catch (_) {
+                return false;
+            }
+        }
+
+        function showTab(tabName) {
+            // Hide all tab contents
+            const contents = document.getElementsByClassName('tab-content');
+            for (let content of contents) {
+                content.classList.remove('active');
+            }
+            
+            // Remove active class from all buttons
+            const buttons = document.getElementsByClassName('tab-button');
+            for (let button of buttons) {
+                button.classList.remove('active');
+            }
+            
+            // Show selected tab and activate button
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function copyCode(elementId) {
+            const code = document.getElementById(elementId).textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = '✅ Copied!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 2000);
+            });
+        }
+
+        // Allow Enter key to trigger analysis
+        document.getElementById('urlInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                analyzeUrl();
+            }
+        });
+    </script>
+</body>
+</html> 

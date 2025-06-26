@@ -4,39 +4,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import SupportModal from '../components/SupportModal';
 import Link from 'next/link';
-
-const articles = [
-  {
-    id: 'ultimate-guide-home-wifi-australian-homes',
-    title: "The Ultimate Guide to Home WiFi for Australian Homes",
-    excerpt: "A reliable, high-speed WiFi connection is now as essential as electricity or running water in the modern Australian home. Master your home network with this comprehensive guide covering WiFi standards, frequency bands, interference solutions, and optimization tips.",
-    date: "2025-06-24",
-    category: "Technology Guide",
-    readTime: "15 min read",
-    image: "/assets/wifi.png",
-    featured: true
-  },
-  {
-    id: 'essential-cryptocurrency-security-practices',
-    title: "Essential Cryptocurrency Security Practices",
-    excerpt: "Cryptocurrency offers exciting opportunities, but it also attracts sophisticated cybercriminals. Learn essential security measures and common threats to navigate the crypto world with confidence and protect your digital assets.",
-    date: "2025-06-23",
-    category: "Cybersecurity",
-    readTime: "12 min read",
-    image: "/assets/crypto-security.png",
-    featured: true
-  },
-  {
-    id: 'worlds-largest-data-breach-16-billion-credentials',
-    title: "The World's Largest Data Breach: 16 Billion Credentials Exposed",
-    excerpt: "A record-shattering data breach has rocked the digital world, with researchers revealing that more than 16 billion login credentials have been leaked in what is believed to be the largest collection of exposed passwords and usernames ever discovered.",
-    date: "2025-06-20",
-    category: "Cybersecurity",
-    readTime: "8 min read",
-    image: "/assets/databreach.jpg",
-    featured: true
-  }
-];
+import { articlesData } from './articleData';
 
 export default function ArticlesPage() {
   const openModal = () => {
@@ -65,7 +33,7 @@ export default function ArticlesPage() {
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {articles.map((article) => (
+              {articlesData.map((article) => (
                 <article 
                   key={article.id}
                   className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden"
@@ -132,7 +100,7 @@ export default function ArticlesPage() {
             </div>
             
             {/* Empty state when no articles */}
-            {articles.length === 0 && (
+            {articlesData.length === 0 && (
               <div className="text-center py-12">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-gray-400 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
