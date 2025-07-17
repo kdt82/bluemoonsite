@@ -1,7 +1,5 @@
 'use client';
 
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
 import SupportModal from '../../components/SupportModal';
 import Link from 'next/link';
 import Head from 'next/head';
@@ -52,7 +50,6 @@ export default function SmallBusinessCyberSecurityArticle() {
         <meta property="article:tag" content="ransomware protection" />
         <meta property="article:tag" content="cyber security Australia" />
       </Head>
-      <Header />
       <main className="bg-white">
         {/* Article Header */}
         <section className="relative bg-[var(--primary)] py-16">
@@ -71,10 +68,10 @@ export default function SmallBusinessCyberSecurityArticle() {
                 </span>
               </div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-                Following the World's Largest Data Breach: What Small Businesses Must Know About Cyber Security and Ransomware Vulnerability
+                Following the World&apos;s Largest Data Breach: What Small Businesses Must Know About Cyber Security and Ransomware Vulnerability
               </h1>
               <p className="text-xl text-white max-w-3xl mx-auto">
-                The recent announcement of the world's largest data breach has sent shockwaves through the global business community—and Australian small businesses are no exception.
+                The recent announcement of the world&apos;s largest data breach has sent shockwaves through the global business community—and Australian small businesses are no exception.
               </p>
             </div>
           </div>
@@ -139,7 +136,7 @@ export default function SmallBusinessCyberSecurityArticle() {
                 <div className="bg-orange-50 border-l-4 border-orange-500 p-4">
                   <h4 className="font-bold text-orange-800 mb-2">Over-reliance on cyber insurance</h4>
                   <p className="text-orange-700">
-                    Many assume insurance will cover all damages. However, policies often have strict conditions—such as requiring specific security measures or hardware onsite—and claims can be denied if these aren't met.
+                    Many assume insurance will cover all damages. However, policies often have strict conditions—such as requiring specific security measures or hardware onsite—and claims can be denied if these aren&apos;t met.
                   </p>
                 </div>
 
@@ -168,12 +165,12 @@ export default function SmallBusinessCyberSecurityArticle() {
                 <li>Using layered security measures including firewalls, endpoint protection, multi-factor authentication, and timely software updates.</li>
               </ul>
 
-              <h2 className="text-3xl font-bold text-[var(--primary)] mt-12 mb-6">Take Action Now: Don't Wait for Your Own Wake-Up Call</h2>
+              <h2 className="text-3xl font-bold text-[var(--primary)] mt-12 mb-6">Take Action Now: Don&apos;t Wait for Your Own Wake-Up Call</h2>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                The world's largest data breach is a warning for all businesses—especially small ones. If you're relying on outdated systems, minimal staff training, or just cyber insurance, your business could be dangerously exposed.
+                The world&apos;s largest data breach is a warning for all businesses—especially small ones. If you&apos;re relying on outdated systems, minimal staff training, or just cyber insurance, your business could be dangerously exposed.
               </p>
               <p className="text-gray-700 mb-8 leading-relaxed">
-                It's time to act decisively. A professional cyber security assessment can uncover vulnerabilities, strengthen your defences, and prepare you for the unexpected. Protect your business before it's too late—contact Blue Moon IT today for expert guidance and peace of mind.
+                It&apos;s time to act decisively. A professional cyber security assessment can uncover vulnerabilities, strengthen your defences, and prepare you for the unexpected. Protect your business before it&apos;s too late—contact Blue Moon IT today for expert guidance and peace of mind.
               </p>
 
               <hr className="my-12 border-gray-300" />
@@ -183,10 +180,10 @@ export default function SmallBusinessCyberSecurityArticle() {
                 <ul className="list-disc list-inside text-gray-700 space-y-2">
                   <li>Small businesses are prime targets for cybercriminals, with 1 in 5 facing attacks in 2025</li>
                   <li>Human error remains the biggest vulnerability—ongoing staff training is essential</li>
-                  <li>Cyber insurance alone isn't enough—proactive security measures are crucial</li>
+                  <li>Cyber insurance alone isn&apos;t enough—proactive security measures are crucial</li>
                   <li>No system is 100% safe, but preparation dramatically reduces risk</li>
                   <li>Regular backups, incident response plans, and layered security are non-negotiable</li>
-                  <li>Professional security assessments can identify and address vulnerabilities before it's too late</li>
+                  <li>Professional security assessments can identify and address vulnerabilities before it&apos;s too late</li>
                 </ul>
               </div>
             </div>
@@ -200,7 +197,7 @@ export default function SmallBusinessCyberSecurityArticle() {
               Protect Your Business from Cyber Threats
             </h2>
             <p className="text-xl text-white mb-8 max-w-2xl mx-auto">
-              Don't become another statistic. Get professional cybersecurity protection tailored for Australian small businesses.
+              Don&apos;t become another statistic. Get professional cybersecurity protection tailored for Australian small businesses.
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
@@ -282,7 +279,6 @@ export default function SmallBusinessCyberSecurityArticle() {
           </div>
         </section>
       </main>
-      <Footer />
       <SupportModal />
     </>
   );

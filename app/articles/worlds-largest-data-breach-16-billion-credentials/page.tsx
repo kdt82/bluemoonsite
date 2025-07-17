@@ -1,7 +1,5 @@
 'use client';
 
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
 import SupportModal from '../../components/SupportModal';
 import Link from 'next/link';
 
@@ -12,7 +10,6 @@ export default function DataBreachArticle() {
 
   return (
     <>
-      <Header />
       <main className="bg-white">
         {/* Article Header */}
         <section className="bg-[var(--primary)] py-12">
@@ -27,7 +24,7 @@ export default function DataBreachArticle() {
                 </span>
               </div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-                The World's Largest Data Breach: 16 Billion Credentials Exposed
+                The World&apos;s Largest Data Breach: 16 Billion Credentials Exposed
               </h1>
               <p className="text-xl text-white max-w-3xl mx-auto">
                 A record-shattering data breach has rocked the digital world, highlighting the growing threat posed by infostealer malware and the vast underground economy of stolen data.
@@ -72,7 +69,7 @@ export default function DataBreachArticle() {
 
               <h2 className="text-3xl font-bold text-[var(--primary)] mt-12 mb-6">How Bad Is the Impact?</h2>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                The sheer scale of the breach is staggering. With approximately 5.5 billion people online globally, the leak could potentially affect multiple accounts per person. The exposed credentials provide cybercriminals with a "blueprint for mass exploitation," enabling account takeovers, identity theft, and highly targeted phishing attacks.
+                The sheer scale of the breach is staggering. With approximately 5.5 billion people online globally, the leak could potentially affect multiple accounts per person. The exposed credentials provide cybercriminals with a &quot;blueprint for mass exploitation,&quot; enabling account takeovers, identity theft, and highly targeted phishing attacks.
               </p>
               <p className="text-gray-700 mb-6 leading-relaxed">
                 However, it is impossible to determine exactly how many unique individuals or accounts have been exposed, as there is likely significant overlap between datasets. Some reports suggesting that accounts at companies like Facebook, Google, and Apple were directly breached are misleading; instead, the credentials are for accounts on these platforms, harvested from various sources rather than from a central hack of those companies.
@@ -86,7 +83,7 @@ export default function DataBreachArticle() {
                 <li>Change your passwords on all online accounts, especially if you reuse passwords across services.</li>
                 <li>Enable multi-factor authentication (MFA) wherever possible to add an extra layer of protection.</li>
                 <li>Use a password manager to generate and store unique, strong passwords for every account.</li>
-                <li>Check if your credentials have been compromised using services like "Have I Been Pwned".</li>
+                <li>Check if your credentials have been compromised using services like &quot;Have I Been Pwned&quot;.</li>
                 <li>Stay vigilant for phishing attempts and suspicious account activity.</li>
               </ul>
               <p className="text-gray-700 mb-6 leading-relaxed">
@@ -98,7 +95,7 @@ export default function DataBreachArticle() {
                 While the 16 billion credentials leak is not a single catastrophic hack, its scale and recency make it a wake-up call for the digital age. The prevalence of infostealer malware and the frequency with which new, massive datasets emerge highlight the urgent need for stronger cybersecurity practices and greater awareness among both individuals and organisations.
               </p>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                As one expert put it, "This is not just a leak—it's a blueprint for mass exploitation". The digital world has never been more interconnected—or more vulnerable.
+                As one expert put it, &quot;This is not just a leak—it&apos;s a blueprint for mass exploitation&quot;. The digital world has never been more interconnected—or more vulnerable.
               </p>
 
               <hr className="my-12 border-gray-300" />
@@ -123,7 +120,7 @@ export default function DataBreachArticle() {
               Protect Yourself from Data Breaches
             </h2>
             <p className="text-xl text-white mb-8 max-w-2xl mx-auto">
-              Don't wait for the next breach to affect you. Take action now to secure your digital life with professional cybersecurity solutions.
+              Don&apos;t wait for the next breach to affect you. Take action now to secure your digital life with professional cybersecurity solutions.
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
@@ -205,7 +202,6 @@ export default function DataBreachArticle() {
           </div>
         </section>
       </main>
-      <Footer />
       <SupportModal />
     </>
   );

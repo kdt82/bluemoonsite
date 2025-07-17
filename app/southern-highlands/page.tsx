@@ -1,7 +1,5 @@
 'use client';
 
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import SupportModal from '../components/SupportModal';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -57,7 +55,6 @@ export default function SouthernHighlandsPage() {
 
   return (
     <>
-      <Header />
       <main className="bg-white">
         {/* Hero Section */}
         <section className="relative h-[500px] md:h-[600px] overflow-hidden">
@@ -184,7 +181,7 @@ export default function SouthernHighlandsPage() {
               </h2>
               <p className="text-lg text-white max-w-4xl mx-auto mb-8">
                 We understand the unique needs of Southern Highlands residents and businesses. 
-                Whether you're running a boutique business in Bowral or working remotely from the rolling hills of Robertson, 
+                Whether you&apos;re running a boutique business in Bowral or working remotely from the rolling hills of Robertson, 
                 we provide reliable IT support that matches your refined lifestyle.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -226,7 +223,6 @@ export default function SouthernHighlandsPage() {
           </div>
         </section>
       </main>
-      <Footer />
       <SupportModal />
     </>
   );

@@ -1,8 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import SupportModal from '../components/SupportModal';
 
 // Metadata needs to be in a separate file for client components
@@ -43,17 +41,26 @@ const ContactPage = () => {
     setError('');
 
     try {
-      // In a real implementation, this would call an API endpoint
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      
-      setIsSubmitted(true);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        message: '',
+      const response = await fetch('/api/support', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-    } catch (err) {
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          message: '',
+        });
+      } else {
+        setError('Failed to submit your message. Please try again.');
+      }
+    } catch {
       setError('Failed to submit your message. Please try again.');
     } finally {
       setIsSubmitting(false);
@@ -77,16 +84,15 @@ const ContactPage = () => {
 
   return (
     <>
-      <Header />
       <main className="bg-white">
         <section className="bg-[var(--primary)] py-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-                Contact Us
-              </h1>
-              <p className="text-xl text-white max-w-3xl mx-auto">
-                Get in touch with our team for professional IT support.
+              <h2 className="text-3xl font-bold text-[var(--primary)] mb-4">
+                We&apos;re Here to Help
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Whether you need immediate support or have a question about our services, 
               </p>
             </div>
           </div>
@@ -109,7 +115,7 @@ const ContactPage = () => {
                       Message Sent!
                     </h3>
                     <p className="text-gray-600 text-center">
-                      Thank you for contacting us. We'll get back to you shortly.
+                      Thank you for contacting us. We&apos;ll get back to you shortly.
                     </p>
                   </div>
                 ) : (
@@ -259,7 +265,6 @@ const ContactPage = () => {
           </div>
         </section>
       </main>
-      <Footer />
       <SupportModal />
     </>
   );

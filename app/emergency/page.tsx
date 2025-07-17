@@ -1,10 +1,7 @@
 'use client';
 
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import SupportModal from '../components/SupportModal';
 import Link from 'next/link';
-import Image from 'next/image';
 
 export default function EmergencyPage() {
   const openModal = () => {
@@ -24,7 +21,6 @@ export default function EmergencyPage() {
 
   return (
     <>
-      <Header />
       <main className="bg-white">
         <section className="bg-red-600 py-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,7 +29,7 @@ export default function EmergencyPage() {
                 Emergency IT Support
               </h1>
               <p className="text-xl text-white max-w-3xl mx-auto">
-                Critical IT issues can't wait. We're here to help when you need it most.
+                Critical IT issues can&apos;t wait. We&apos;re here to help when you need it most.
               </p>
             </div>
           </div>
@@ -115,7 +111,6 @@ export default function EmergencyPage() {
           </div>
         </section>
       </main>
-      <Footer />
       <SupportModal />
     </>
   );

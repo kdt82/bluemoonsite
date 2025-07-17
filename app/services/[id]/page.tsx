@@ -1,8 +1,6 @@
 'use client';
 
 import { useParams } from 'next/navigation';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
 import SupportModal from '../../components/SupportModal';
 import Link from 'next/link';
 
@@ -243,17 +241,27 @@ export default function ServicePage() {
   if (!service) {
     return (
       <>
-        <Header />
-        <main className="py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div
+          className="bg-cover bg-center"
+          style={{
+            backgroundImage: `url('/images/service-not-found.jpg')`,
+            height: '400px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: 'white',
+            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+          }}
+        >
+          <div className="text-center">
             <h1 className="text-3xl font-bold text-[var(--primary)]">Service Not Found</h1>
             <p className="mt-4 text-gray-600">The requested service could not be found.</p>
             <Link href="/services" className="mt-6 inline-block text-[var(--accent)] hover:text-[var(--secondary)]">
               View All Services
             </Link>
           </div>
-        </main>
-        <Footer />
+        </div>
+        {/* <Footer /> */}
       </>
     );
   }
@@ -264,21 +272,31 @@ export default function ServicePage() {
 
   return (
     <>
-      <Header />
-      <main className="bg-white">
-        <section className="bg-[var(--primary)] py-12">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-                {service.title}
-              </h1>
-              <p className="text-xl text-white max-w-3xl mx-auto">
-                {service.description}
-              </p>
-            </div>
+      <div
+        className="bg-cover bg-center"
+        style={{
+          backgroundImage: `url('/images/service-header.jpg')`,
+          height: '400px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          color: 'white',
+          textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+        }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+              {service.title}
+            </h1>
+            <p className="text-xl text-white max-w-3xl mx-auto">
+              {service.description}
+            </p>
           </div>
-        </section>
+        </div>
+      </div>
 
+      <main className="bg-white">
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
@@ -294,7 +312,7 @@ export default function ServicePage() {
 
                 <div className="mb-10">
                   <h2 className="text-2xl font-bold text-[var(--secondary)] mb-4">
-                    What's Included
+                    What&apos;s Included
                   </h2>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {service.features.map((feature, index) => (
@@ -362,7 +380,7 @@ export default function ServicePage() {
                       Need emergency support?
                     </h4>
                     <p className="text-sm text-gray-600 mb-3">
-                      If you're experiencing urgent issues, contact us immediately for priority assistance.
+                      If you&apos;re experiencing urgent issues, contact us immediately for priority assistance.
                     </p>
                     <Link
                       href="/emergency"
@@ -413,7 +431,7 @@ export default function ServicePage() {
           </div>
         </section>
       </main>
-      <Footer />
+      {/* <Footer /> */}
       <SupportModal />
     </>
   );

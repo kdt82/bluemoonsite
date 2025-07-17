@@ -1,8 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import SupportModal from '../components/SupportModal';
 
 interface FAQItem {
@@ -231,7 +229,6 @@ export default function FAQPage() {
 
   return (
     <>
-      <Header />
       <main className="bg-white">
         {/* Hero Section */}
         <section className="bg-[var(--primary)] py-12">
@@ -292,7 +289,7 @@ export default function FAQPage() {
                 Still Have Questions?
               </h3>
               <p className="text-gray-600 mb-6">
-                Can't find the answer you're looking for? Our team is here to help with any IT questions or concerns.
+                Can&apos;t find the answer you&apos;re looking for? Our team is here to help with any IT questions or concerns.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <button
@@ -321,7 +318,7 @@ export default function FAQPage() {
                   Need Emergency Support?
                 </h2>
                 <p className="text-lg text-gray-600 mt-2">
-                  For urgent IT issues that can't wait, our emergency support is available outside business hours.
+                  For urgent IT issues that can&apos;t wait, our emergency support is available outside business hours.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -342,7 +339,6 @@ export default function FAQPage() {
           </div>
         </section>
       </main>
-      <Footer />
       <SupportModal />
     </>
   );

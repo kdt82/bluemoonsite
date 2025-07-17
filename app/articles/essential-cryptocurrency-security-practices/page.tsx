@@ -1,7 +1,5 @@
 'use client';
 
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
 import SupportModal from '../../components/SupportModal';
 import Link from 'next/link';
 
@@ -12,7 +10,6 @@ export default function CryptocurrencySecurityArticle() {
 
   return (
     <>
-      <Header />
       <main className="bg-white">
         {/* Article Header */}
         <section className="relative bg-[var(--primary)] py-16">
@@ -34,7 +31,7 @@ export default function CryptocurrencySecurityArticle() {
                 Essential Cryptocurrency Security Practices
               </h1>
               <p className="text-xl text-white max-w-3xl mx-auto">
-                Cryptocurrency offers exciting opportunities, but it also attracts sophisticated cybercriminals. To keep your digital assets safe, it's crucial to follow best practices that protect your investments from theft and fraud.
+                Cryptocurrency offers exciting opportunities, but it also attracts sophisticated cybercriminals. To keep your digital assets safe, it&apos;s crucial to follow best practices that protect your investments from theft and fraud.
               </p>
             </div>
           </div>
@@ -72,7 +69,7 @@ export default function CryptocurrencySecurityArticle() {
 
               <h3 className="text-2xl font-bold text-[var(--primary)] mt-8 mb-4">5. Verify Addresses Carefully</h3>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                Always double-check recipient addresses before sending cryptocurrency. Malware can replace copied addresses with those controlled by attackers. While some users check just the first and last few characters, it's safer to verify the entire address. Use address whitelisting features if available.
+                Always double-check recipient addresses before sending cryptocurrency. Malware can replace copied addresses with those controlled by attackers. While some users check just the first and last few characters, it&apos;s safer to verify the entire address. Use address whitelisting features if available.
               </p>
 
               <h3 className="text-2xl font-bold text-[var(--primary)] mt-8 mb-4">6. Use Reputable Exchanges and Services</h3>
@@ -120,7 +117,7 @@ export default function CryptocurrencySecurityArticle() {
                 <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4">
                   <h4 className="font-bold text-yellow-800 mb-2">Fake Mobile Apps</h4>
                   <p className="text-yellow-700">
-                    Attackers create counterfeit versions of popular crypto apps. Only download apps from official stores, verify the developer's name, and check reviews.
+                    Attackers create counterfeit versions of popular crypto apps. Only download apps from official stores, verify the developer&apos;s name, and check reviews.
                   </p>
                 </div>
 
@@ -179,7 +176,7 @@ export default function CryptocurrencySecurityArticle() {
               Secure Your Digital Assets Today
             </h2>
             <p className="text-xl text-white mb-8 max-w-2xl mx-auto">
-              Don't let cybercriminals steal your cryptocurrency investments. Get professional cybersecurity protection for your digital assets.
+              Don&apos;t let cybercriminals steal your cryptocurrency investments. Get professional cybersecurity protection for your digital assets.
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
@@ -261,7 +258,6 @@ export default function CryptocurrencySecurityArticle() {
           </div>
         </section>
       </main>
-      <Footer />
       <SupportModal />
     </>
   );

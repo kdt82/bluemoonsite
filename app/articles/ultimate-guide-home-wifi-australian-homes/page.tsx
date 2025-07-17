@@ -1,7 +1,5 @@
 'use client';
 
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
 import SupportModal from '../../components/SupportModal';
 import Link from 'next/link';
 
@@ -12,7 +10,6 @@ export default function WiFiGuideArticle() {
 
   return (
     <>
-      <Header />
       <main className="bg-white">
         {/* Article Header */}
         <section className="bg-[var(--primary)] py-16">
@@ -41,7 +38,7 @@ export default function WiFiGuideArticle() {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="prose prose-lg max-w-none">
               <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-                Whether you're streaming movies, working from home, gaming online, or running a smart home filled with connected devices, understanding your WiFi setup is crucial to getting the best performance. This guide breaks down everything you need to know about WiFi standards, frequency bands, interference, and optimisation—helping you make informed decisions for a seamless online experience.
+                Whether you&apos;re streaming movies, working from home, gaming online, or running a smart home filled with connected devices, understanding your WiFi setup is crucial to getting the best performance. This guide breaks down everything you need to know about WiFi standards, frequency bands, interference, and optimisation—helping you make informed decisions for a seamless online experience.
               </p>
 
               {/* WiFi Router Image */}
@@ -125,7 +122,7 @@ export default function WiFiGuideArticle() {
               <h2 className="text-3xl font-bold text-[var(--primary)] mt-12 mb-6">Common Sources of WiFi Interference</h2>
               
               <p className="text-gray-700 mb-6 leading-relaxed">
-                Interference is a major cause of slow or unreliable WiFi. Here's what to watch for:
+                Interference is a major cause of slow or unreliable WiFi. Here&apos;s what to watch for:
               </p>
 
               <div className="space-y-6">
@@ -146,7 +143,7 @@ export default function WiFiGuideArticle() {
                 <div className="bg-green-50 border-l-4 border-green-500 p-4">
                   <h4 className="font-bold text-green-800 mb-2">6 GHz Band Interference</h4>
                   <p className="text-green-700">
-                    Minimal interference for now, as it's a new spectrum with limited device support.
+                    Minimal interference for now, as it&apos;s a new spectrum with limited device support.
                   </p>
                 </div>
               </div>
@@ -187,7 +184,7 @@ export default function WiFiGuideArticle() {
 
               <h3 className="text-2xl font-bold text-[var(--primary)] mt-8 mb-4">Quality of Service (QoS)</h3>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                Prioritise video calls, gaming, and streaming in your router's settings to ensure smooth performance during peak times.
+                Prioritise video calls, gaming, and streaming in your router&apos;s settings to ensure smooth performance during peak times.
               </p>
 
               <h2 className="text-3xl font-bold text-[var(--primary)] mt-12 mb-6">Future-Proofing Your Home Network</h2>
@@ -222,7 +219,7 @@ export default function WiFiGuideArticle() {
                 <li>Compare your internet plan with actual speeds.</li>
                 <li>Test both wired and wireless connections.</li>
                 <li>Check for channel congestion and interference.</li>
-                <li>Update your router's firmware regularly.</li>
+                <li>Update your router&apos;s firmware regularly.</li>
               </ul>
 
               <h3 className="text-2xl font-bold text-[var(--primary)] mt-8 mb-4">Poor Coverage</h3>
@@ -321,7 +318,6 @@ export default function WiFiGuideArticle() {
           </div>
         </section>
       </main>
-      <Footer />
       <SupportModal />
     </>
   );

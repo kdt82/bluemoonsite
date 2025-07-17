@@ -1,6 +1,5 @@
 'use client';
 
-import Header from '../components/Header';
 import Footer from '../components/Footer';
 import SupportModal from '../components/SupportModal';
 import Link from 'next/link';
@@ -13,7 +12,6 @@ export default function ArticlesPage() {
 
   return (
     <>
-      <Header />
       <main className="bg-white">
         {/* Hero Section */}
         <section className="bg-[var(--primary)] py-12">

@@ -1,7 +1,5 @@
 'use client';
 
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import SupportModal from '../components/SupportModal';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -57,7 +55,6 @@ export default function EurobodallaPage() {
 
   return (
     <>
-      <Header />
       <main className="bg-white">
         {/* Hero Section */}
         <section className="relative h-[500px] md:h-[600px] overflow-hidden">
@@ -184,7 +181,7 @@ export default function EurobodallaPage() {
               </h2>
               <p className="text-lg text-white max-w-4xl mx-auto mb-8">
                 We understand the unique challenges of coastal living in Eurobodalla. 
-                Whether you're working from your beachside home in Malua Bay or running a tourism business in Batemans Bay, 
+                Whether you&apos;re working from your beachside home in Malua Bay or running a tourism business in Batemans Bay, 
                 we provide reliable IT support that withstands the coastal environment.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -226,7 +223,6 @@ export default function EurobodallaPage() {
           </div>
         </section>
       </main>
-      <Footer />
       <SupportModal />
     </>
   );

@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import TemporaryPopup from './components/TemporaryPopup';
 
 // Load Montserrat with all weights needed
 const montserrat = Montserrat({
@@ -167,7 +170,10 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} font-sans antialiased`}
       >
+        <Header />
         {children}
+        <Footer />
+        <TemporaryPopup />
       </body>
     </html>
   );

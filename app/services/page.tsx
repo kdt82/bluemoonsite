@@ -1,10 +1,7 @@
 'use client';
 
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import SupportModal from '../components/SupportModal';
 import Link from 'next/link';
-import Image from 'next/image';
 
 const services = [
   {
@@ -178,7 +175,6 @@ export default function ServicesPage() {
 
   return (
     <>
-      <Header />
       <main className="bg-white">
         <section className="bg-[var(--primary)] py-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -212,7 +208,7 @@ export default function ServicesPage() {
                         </p>
                         <div className="mt-2 mb-6">
                           <h3 className="text-lg font-semibold text-[var(--primary)] mb-3">
-                            What's Included:
+                            What&apos;s Included:
                           </h3>
                           <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
                             {service.features.map((feature, index) => (
@@ -248,7 +244,7 @@ export default function ServicesPage() {
                   Need Emergency Support?
                 </h2>
                 <p className="text-lg text-gray-600 mt-2">
-                  We're available for urgent IT issues that can't wait.
+                  We&apos;re available for urgent IT issues that can&apos;t wait.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -269,7 +265,6 @@ export default function ServicesPage() {
           </div>
         </section>
       </main>
-      <Footer />
       <SupportModal />
     </>
   );
