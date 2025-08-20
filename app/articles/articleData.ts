@@ -11,6 +11,16 @@ export interface ArticleData {
 
 export const articlesData: ArticleData[] = [
   {
+    id: 'iinet-cyber-attack-what-happened-how-to-protect-yourself',
+    title: "iiNet Cyber-Attack: What Happened and How to Protect Yourself",
+    excerpt: "On 16 August 2025, Australia's second-largest internet provider iiNet identified a cyber-attack affecting 280,000 customers. Learn what information was stolen and how to protect yourself from similar attacks.",
+    date: "2025-08-20",
+    category: "Cybersecurity",
+    readTime: "12 min read",
+    image: "/assets/iinetdatabreach.png",
+    featured: true
+  },
+  {
     id: 'following-worlds-largest-data-breach-small-business-cybersecurity-ransomware',
     title: "Following the World's Largest Data Breach: What Small Businesses Must Know About Cyber Security and Ransomware Vulnerability",
     excerpt: "The recent announcement of the world's largest data breach has sent shockwaves through the global business community—and Australian small businesses are no exception. Learn essential cybersecurity strategies to protect against ransomware and cyber threats.",
