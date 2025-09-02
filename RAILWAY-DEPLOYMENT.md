@@ -12,8 +12,15 @@ This project is configured for automatic deployment to Railway.
 
 Set these in your Railway project dashboard:
 
+**Resend Email Service (Railway Compatible):**
 ```
 NODE_ENV=production
+RESEND_API_KEY=re_your_api_key_here
+RESEND_FROM_EMAIL=support@yourdomain.com
+```
+
+**Legacy SMTP (for AWS deployments):**
+```
 SMTP_HOST=smtp.zoho.com.au
 SMTP_PORT=465
 SMTP_SECURE=true

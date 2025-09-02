@@ -1,44 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 
-// Configure nodemailer transporter
-const createTransporter = () => {
-  // Check if all required environment variables are set
-  const smtpHost = process.env.SMTP_HOST || 'smtp.zoho.com.au';
-  const smtpPort = parseInt(process.env.SMTP_PORT || '587');
-  const smtpSecure = process.env.SMTP_SECURE === 'true';
-  const smtpUser = process.env.SMTP_USER;
-  const smtpPassword = process.env.SMTP_PASSWORD;
+// Initialize Resend
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-  // Log environment variable status (without exposing actual values)
-  console.log('📧 SMTP Configuration:');
-  console.log('- SMTP_HOST:', smtpHost);
-  console.log('- SMTP_PORT:', smtpPort);
-  console.log('- SMTP_SECURE:', smtpSecure);
-  console.log('- SMTP_USER is set:', !!smtpUser);
-  console.log('- SMTP_PASSWORD is set:', !!smtpPassword);
-  console.log('- Railway Environment:', process.env.RAILWAY_ENVIRONMENT || 'not-railway');
-
-  if (!smtpUser || !smtpPassword) {
-    console.error('⚠️ SMTP_USER or SMTP_PASSWORD is missing from environment variables');
-    return null;
-  }
-
-  return nodemailer.createTransport({
-    host: smtpHost,
-    port: smtpPort,
-    secure: smtpSecure,
-    auth: {
-      user: smtpUser,
-      pass: smtpPassword,
-    },
-    // Add Railway-specific debugging
-    debug: true, // Enable debug in Railway to see SMTP communication
-    logger: true
-  });
-};
-
-// Function to send email with better error handling
+// Function to send email using Resend
 async function sendEmail(data: {
   from: string;
   to: string;
@@ -50,58 +16,46 @@ async function sendEmail(data: {
     return false;
   }
 
-  const transporter = createTransporter();
-  if (!transporter) {
-    console.error('Could not create email transporter due to missing configuration');
+  if (!process.env.RESEND_API_KEY) {
+    console.error('⚠️ RESEND_API_KEY is missing from environment variables');
+    console.error('💡 Get your API key from https://resend.com/api-keys');
     return false;
   }
 
   try {
-    console.log('🔍 Testing SMTP connection...');
-    // Test the connection first
-    await transporter.verify();
-    console.log('✅ SMTP connection verified successfully');
+    console.log('� Sending email via Resend...');
+    console.log('- To:', data.to);
+    console.log('- Subject:', data.subject);
+    console.log('- From domain configured:', !!process.env.RESEND_FROM_EMAIL);
 
-    const info = await transporter.sendMail({
-      from: `"Blue Moon IT Website" <${process.env.SMTP_USER}>`,
-      to: data.to,
+    const result = await resend.emails.send({
+      from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev', // Use your verified domain
+      to: [data.to],
       subject: data.subject,
       html: data.html,
-      replyTo: data.from // Add reply-to with the customer's email
+      replyTo: data.from
     });
-    console.log(`✅ Email sent successfully to ${data.to}`);
-    console.log('Message ID:', info.messageId);
-    console.log('Response:', info.response);
+
+    if (result.error) {
+      console.error('❌ Resend API error:', result.error);
+      return false;
+    }
+
+    console.log('✅ Email sent successfully via Resend');
+    console.log('Email ID:', result.data?.id);
     return true;
   } catch (error) {
-    console.error('📧 Email sending error details:', error);
-    // Log more specific info for common SMTP errors
-    if (error && typeof error === 'object') {
-      const err = error as any;
-      console.error('Error code:', err.code);
-      console.error('Error command:', err.command);
-      console.error('Error response:', err.response);
-      
-      if (err.code === 'ECONNREFUSED') {
-        console.error('🚫 Connection to SMTP server was refused. Railway may be blocking SMTP connections.');
-      } else if (err.code === 'ETIMEDOUT') {
-        console.error('⏰ Connection to SMTP server timed out. Railway network issue.');
-      } else if (err.code === 'EAUTH') {
-        console.error('🔐 Authentication failed. Check username and password.');
-      } else if (err.code === 'ENOTFOUND') {
-        console.error('🌐 SMTP host not found. DNS resolution issue.');
-      }
-    }
+    console.error('� Resend sending error:', error);
     return false;
   }
 }
 
 export async function POST(request: NextRequest) {
   console.log('📨 POST request received to /api/support');
-  console.log('🌍 Railway Environment Details:');
+  console.log('🌍 Environment Details:');
   console.log('- NODE_ENV:', process.env.NODE_ENV);
   console.log('- RAILWAY_ENVIRONMENT:', process.env.RAILWAY_ENVIRONMENT);
-  console.log('- RAILWAY_SERVICE_NAME:', process.env.RAILWAY_SERVICE_NAME);
+  console.log('- Using Resend for email delivery');
   
   try {
     // Safely parse JSON with error handling
@@ -140,21 +94,50 @@ export async function POST(request: NextRequest) {
       timestamp: new Date().toISOString(),
     });
 
-    // Build email HTML content with safe string handling
+    // Build email HTML content with better styling
     const emailHtml = `
-      <h2>New Support Request from Railway Deployment</h2>
-      <p><strong>Name:</strong> ${fullName}</p>
-      <p><strong>Phone:</strong> ${phone}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Service:</strong> ${service}</p>
-      <p><strong>Urgency:</strong> ${urgency}</p>
-      <p><strong>Summary:</strong> ${summary}</p>
-      <p><strong>Timestamp:</strong> ${new Date().toLocaleString()}</p>
-      <p><strong>Source:</strong> Railway Deployment (${process.env.RAILWAY_ENVIRONMENT || 'unknown'})</p>
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <meta charset="utf-8">
+        <title>New Support Request</title>
+      </head>
+      <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+        <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+          <h2 style="color: #007acc; border-bottom: 2px solid #007acc; padding-bottom: 10px;">
+            New Support Request from Blue Moon IT Website
+          </h2>
+          
+          <div style="background: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0;">
+            <p><strong>Name:</strong> ${fullName}</p>
+            <p><strong>Phone:</strong> ${phone}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Service:</strong> ${service}</p>
+            <p><strong>Urgency:</strong> <span style="color: ${urgency === 'High' ? '#e74c3c' : urgency === 'Medium' ? '#f39c12' : '#27ae60'};">${urgency}</span></p>
+          </div>
+          
+          <div style="margin: 20px 0;">
+            <p><strong>Summary:</strong></p>
+            <div style="background: #f5f5f5; padding: 15px; border-left: 4px solid #007acc; border-radius: 4px;">
+              ${summary.replace(/\n/g, '<br>')}
+            </div>
+          </div>
+          
+          <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; font-size: 14px; color: #666;">
+            <p><strong>Submitted:</strong> ${new Date().toLocaleString('en-AU', { 
+              timeZone: 'Australia/Sydney',
+              dateStyle: 'full',
+              timeStyle: 'short'
+            })}</p>
+            <p><strong>Source:</strong> Railway Deployment</p>
+          </div>
+        </div>
+      </body>
+      </html>
     `;
 
-    // Always send the actual email regardless of environment
-    console.log('📧 Attempting to send email...');
+    // Send email using Resend
+    console.log('📧 Attempting to send email via Resend...');
     const emailSent = await sendEmail({
       from: email,
       to: 'support@bluemoonit.com.au',
@@ -163,16 +146,17 @@ export async function POST(request: NextRequest) {
     });
 
     if (!emailSent) {
-      console.warn('⚠️ Email could not be sent! This may be a Railway network restriction.');
+      console.warn('⚠️ Email could not be sent via Resend!');
       // Still return success to client but log the failure
     } else {
-      console.log('✅ Email sent successfully!');
+      console.log('✅ Email sent successfully via Resend!');
     }
 
     return NextResponse.json({
       success: true,
       message: 'Your support request has been submitted successfully.',
-      emailSent: emailSent // Include email status for debugging
+      emailSent: emailSent,
+      emailProvider: 'Resend'
     });
   } catch (error) {
     console.error('Error processing support request:', error);
