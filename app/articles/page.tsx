@@ -1,6 +1,5 @@
 'use client';
 
-import Footer from '../components/Footer';
 import SupportModal from '../components/SupportModal';
 import Link from 'next/link';
 import { articlesData } from './articleData';
@@ -140,7 +139,6 @@ export default function ArticlesPage() {
           </div>
         </section>
       </main>
-      <Footer />
       <SupportModal />
     </>
   );
