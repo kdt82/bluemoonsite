@@ -115,7 +115,7 @@ const SupportModal = () => {
       
       try {
         // Send the form data to our API endpoint
-        const response = await fetch('/api/support-test', {
+        const response = await fetch('/api/support', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
