@@ -5,7 +5,7 @@ import nodemailer from 'nodemailer';
 const createTransporter = () => {
   // Check if all required environment variables are set
   const smtpHost = process.env.SMTP_HOST || 'smtp.zoho.com.au';
-  const smtpPort = parseInt(process.env.SMTP_PORT || '587');
+  const smtpPort = parseInt(process.env.SMTP_PORT || '465');
   const smtpSecure = process.env.SMTP_SECURE === 'true';
   const smtpUser = process.env.SMTP_USER;
   const smtpPassword = process.env.SMTP_PASSWORD;
@@ -94,15 +94,25 @@ async function sendEmail(data: {
 
 export async function POST(request: NextRequest) {
   console.log('📨 POST request received to /api/support');
+  
+  // Add CORS headers for Railway deployment
+  const headers = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+  };
+  
   try {
     // Safely parse JSON with error handling
     let data;
     try {
       data = await request.json();
+      console.log('📋 Received form data:', data);
     } catch (e) {
+      console.error('❌ JSON parsing error:', e);
       return NextResponse.json(
         { success: false, message: 'Invalid JSON data received' },
-        { status: 400 }
+        { status: 400, headers }
       );
     }
     
@@ -115,9 +125,16 @@ export async function POST(request: NextRequest) {
     const urgency = data?.urgency || 'Medium';
     
     if (!fullName || !email || !phone || !service || !summary) {
+      console.log('❌ Validation failed - missing fields:', {
+        fullName: !!fullName,
+        email: !!email,
+        phone: !!phone,
+        service: !!service,
+        summary: !!summary
+      });
       return NextResponse.json(
         { success: false, message: 'Missing required fields' },
-        { status: 400 }
+        { status: 400, headers }
       );
     }
 
@@ -147,14 +164,18 @@ export async function POST(request: NextRequest) {
     console.log('📧 Attempting to send email...');
     const emailSent = await sendEmail({
       from: email,
-      to: 'support@bluemoonit.com.au', // Make sure this is correct
+      to: 'support@bluemoonit.com.au', // Correct recipient email
       subject: `Support Request: ${service} - ${urgency} Priority`,
       html: emailHtml,
     });
     
     if (!emailSent) {
       console.warn('⚠️ Email could not be sent! Check SMTP configuration.');
-      // Still return success to client but log the failure
+      // Return error if email fails
+      return NextResponse.json(
+        { success: false, message: 'Failed to send email. Please try again later.' },
+        { status: 500, headers }
+      );
     } else {
       console.log('✅ Email sent successfully!');
     }
@@ -162,13 +183,25 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       success: true,
       message: 'Your support request has been submitted successfully.'
-    });
+    }, { headers });
   } catch (error) {
-    console.error('Error processing support request:', error);
+    console.error('❌ Error processing support request:', error);
     
     return NextResponse.json(
       { success: false, message: 'Failed to process your request. Please try again.' },
-      { status: 500 }
+      { status: 500, headers }
     );
   }
+}
+
+// Add OPTIONS handler for CORS preflight
+export async function OPTIONS(request: NextRequest) {
+  return new NextResponse(null, {
+    status: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    },
+  });
 } 

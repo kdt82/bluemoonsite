@@ -108,43 +108,69 @@ const SupportModal = () => {
 
     try {
       console.log('📤 Sending form data to API:', formData);
-      // Send the form data to our API endpoint
-      const response = await fetch('/api/support', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      let result;
+      
+      // Create AbortController for timeout
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
+      
       try {
-        result = await response.json();
-        console.log('📥 API response:', result);
-      } catch (jsonError) {
-        console.error('Error parsing response:', jsonError);
-        throw new Error('Failed to parse response');
+        // Send the form data to our API endpoint
+        const response = await fetch('/api/support', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+          signal: controller.signal,
+        });
+
+        clearTimeout(timeoutId);
+        console.log('📡 Response status:', response.status);
+        console.log('📡 Response headers:', response.headers);
+
+        let result;
+        try {
+          result = await response.json();
+          console.log('📥 API response:', result);
+        } catch (jsonError) {
+          console.error('❌ Error parsing response JSON:', jsonError);
+          const responseText = await response.text();
+          console.log('📄 Raw response:', responseText);
+          throw new Error('Failed to parse server response');
+        }
+        
+        if (!response.ok) {
+          console.error('❌ API returned error status:', response.status, result);
+          throw new Error(result?.message || `Server error: ${response.status}`);
+        }
+        
+        if (!result.success) {
+          console.error('❌ API returned success: false', result);
+          throw new Error(result?.message || 'Server indicated failure');
+        }
+        
+        console.log('🎉 Form submitted successfully!');
+        setIsSubmitted(true);
+        // Reset form after successful submission
+        setFormData(initialFormData);
+        
+        // Close modal after 3 seconds
+        setTimeout(() => {
+          setIsOpen(false);
+          setIsSubmitted(false);
+          console.log('🔒 Closing modal after successful submission');
+        }, 3000);
+      } catch (fetchError) {
+        clearTimeout(timeoutId);
+        if (fetchError instanceof Error && fetchError.name === 'AbortError') {
+          throw new Error('Request timed out. Please check your connection and try again.');
+        }
+        throw fetchError;
       }
-      
-      if (!response.ok) {
-        console.error('❌ API returned error status:', response.status);
-        throw new Error(result?.message || 'Failed to submit the form');
-      }
-      
-      console.log('🎉 Form submitted successfully!');
-      setIsSubmitted(true);
-      // Reset form after successful submission
-      setFormData(initialFormData);
-      
-      // Close modal after 3 seconds
-      setTimeout(() => {
-        setIsOpen(false);
-        setIsSubmitted(false);
-        console.log('🔒 Closing modal after successful submission');
-      }, 3000);
     } catch (err) {
       console.error('❌ Form submission error:', err);
-      setError('Failed to submit your request. Please try again.');
+      const errorMessage = err instanceof Error ? err.message : 'Failed to submit your request. Please try again.';
+      setError(errorMessage);
     } finally {
       setIsSubmitting(false);
     }
