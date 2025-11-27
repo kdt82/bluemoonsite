@@ -11,6 +11,16 @@ export interface ArticleData {
 
 export const articlesData: ArticleData[] = [
   {
+    id: '24-ghz-vs-5-ghz-wifi-which-network-should-you-use',
+    title: "2.4 GHz vs 5 GHz Wi-Fi: Which Network Should You Use at Home or Work?",
+    excerpt: "Reliable Wi-Fi is essential for both homes and businesses. Learn when to use 2.4 GHz or 5 GHz, how guest networks improve security, and how to build a scalable wireless environment.",
+    date: "2025-11-28",
+    category: "Technology Guide",
+    readTime: "12 min read",
+    image: "/assets/wifinetworks.jpg",
+    featured: true
+  },
+  {
     id: 'iinet-cyber-attack-what-happened-how-to-protect-yourself',
     title: "iiNet Cyber-Attack: What Happened and How to Protect Yourself",
     excerpt: "On 16 August 2025, Australia's second-largest internet provider iiNet identified a cyber-attack affecting 280,000 customers. Learn what information was stolen and how to protect yourself from similar attacks.",
