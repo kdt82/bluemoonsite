@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-  output: 'standalone',
+  // Removed standalone - not needed for Railway and uses more memory
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -10,6 +10,10 @@ const nextConfig = {
   },
   // Enable compression for better performance
   compress: true,
+  // Reduce memory usage
+  poweredByHeader: false,
+  // Optimize for production
+  productionBrowserSourceMaps: false,
   // Generate static sitemap
   trailingSlash: false,
   // Optimize images
