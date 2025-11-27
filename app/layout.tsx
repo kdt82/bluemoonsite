@@ -76,6 +76,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://bluemoonit.com.au',
   },
+  icons: {
+    icon: '/assets/favicon.ico',
+    shortcut: '/assets/favicon.ico',
+    apple: '/assets/favicon.ico',
+  },
   other: {
     'geo.region': 'AU-NSW',
     'geo.placename': 'Illawarra, New South Wales',
