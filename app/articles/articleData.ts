@@ -11,6 +11,16 @@ export interface ArticleData {
 
 export const articlesData: ArticleData[] = [
   {
+    id: 'dont-paste-what-you-wouldnt-publish-chatgpt-data-incident',
+    title: "“Don’t Paste What You Wouldn’t Publish”: What the ChatGPT Data Incident Means For Everyday Users",
+    excerpt: "The recent Mixpanel security incident involving OpenAI is a clear reminder of a simple rule: never put anything into ChatGPT that you wouldn’t be comfortable seeing leaked.",
+    date: "2025-11-29",
+    category: "Cybersecurity",
+    readTime: "10 min read",
+    image: "/assets/gptdatabreach.jpg",
+    featured: true
+  },
+  {
     id: '24-ghz-vs-5-ghz-wifi-which-network-should-you-use',
     title: "2.4 GHz vs 5 GHz Wi-Fi: Which Network Should You Use at Home or Work?",
     excerpt: "Reliable Wi-Fi is essential for both homes and businesses. Learn when to use 2.4 GHz or 5 GHz, how guest networks improve security, and how to build a scalable wireless environment.",
